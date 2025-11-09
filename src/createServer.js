@@ -22,6 +22,7 @@ const createServer = () => {
 
     if (errors.length === 0) {
       res.statusCode = 200;
+      res.statusMessage = 'OK';
       res.setHeader('Content-Type', 'application/json');
 
       const response = createResponse({ wordsToConvert, toCase });
@@ -29,6 +30,7 @@ const createServer = () => {
       res.end(response);
     } else {
       res.statusCode = 400;
+      res.statusMessage = 'Bad request';
       res.setHeader('Content-Type', 'application/json');
 
       const response = createResponse({ errors });
